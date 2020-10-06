@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="66855249-0586-4460-afe8-9dd884a83200" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1iOKakyzscRYCokISwYNFdHOFZG" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="dart.analysis.tool.window.force.activate" value="false" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\projects\flutter\cv\get_share_options\get_share_options\lib\src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="filePath" value="$PROJECT_DIR$/example/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="66855249-0586-4460-afe8-9dd884a83200" name="Default Changelist" comment="" />
+      <created>1601773263321</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1601773263321</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser" timestamp="1601922515920">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1601922515920" />
+    <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1601931629669">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1601931629669" />
+    <state x="541" y="265" key="Github.ShareDialog" timestamp="1601949242905">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="541" y="265" key="Github.ShareDialog/0.0.1366.738@0.0.1366.738" timestamp="1601949242905" />
+    <state width="1322" height="189" key="GridCell.Tab.0.bottom" timestamp="1601949292127">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1322" height="189" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1601949292127" />
+    <state width="1322" height="189" key="GridCell.Tab.0.center" timestamp="1601949292127">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1322" height="189" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1601949292127" />
+    <state width="1322" height="189" key="GridCell.Tab.0.left" timestamp="1601949292126">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1322" height="189" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1601949292126" />
+    <state width="1322" height="189" key="GridCell.Tab.0.right" timestamp="1601949292127">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1322" height="189" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1601949292127" />
+    <state width="1322" height="221" key="GridCell.Tab.1.bottom" timestamp="1601773556471">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1322" height="221" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1601773556471" />
+    <state width="1322" height="221" key="GridCell.Tab.1.center" timestamp="1601773556470">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1322" height="221" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1601773556470" />
+    <state width="1322" height="221" key="GridCell.Tab.1.left" timestamp="1601773556470">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1322" height="221" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1601773556470" />
+    <state width="1322" height="221" key="GridCell.Tab.1.right" timestamp="1601773556470">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1322" height="221" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1601773556470" />
+    <state x="263" y="103" key="IDE.errors.dialog" timestamp="1601949055486">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="263" y="103" key="IDE.errors.dialog/0.0.1366.738@0.0.1366.738" timestamp="1601949055486" />
+    <state x="223" y="0" width="1031" height="738" key="SettingsEditor" timestamp="1601924191701">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="223" y="0" width="1031" height="738" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1601924191701" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1601920808376">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1366.738@0.0.1366.738" timestamp="1601920808376" />
+    <state x="203" y="51" width="818" height="661" key="new project wizard" timestamp="1601902513242">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="203" y="51" width="818" height="661" key="new project wizard/0.0.1366.738@0.0.1366.738" timestamp="1601902513242" />
+  </component>
+</project>
