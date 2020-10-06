@@ -1,4 +1,4 @@
-# share_options
+# share_options 1.0.0
 
 ##### A Flutter plugin for retrieving all share options and share texts over any of them 
 

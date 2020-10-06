@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="66855249-0586-4460-afe8-9dd884a83200" name="Default Changelist" comment="" />
+    <list default="true" id="66855249-0586-4460-afe8-9dd884a83200" name="Default Changelist" comment=".">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +19,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1iOKakyzscRYCokISwYNFdHOFZG" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -51,9 +60,25 @@
       <option name="presentableId" value="Default" />
       <updated>1601773263321</updated>
     </task>
+    <task id="LOCAL-00001" summary=".">
+      <created>1601949960084</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1601949960084</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="445" y="170" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1601950424926">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="445" y="170" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.738@0.0.1366.738" timestamp="1601950424926" />
     <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser" timestamp="1601922515920">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -62,10 +87,14 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1601931629669" />
-    <state x="541" y="265" key="Github.ShareDialog" timestamp="1601949242905">
+    <state x="541" y="265" key="Github.ShareDialog" timestamp="1601949865961">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="541" y="265" key="Github.ShareDialog/0.0.1366.738@0.0.1366.738" timestamp="1601949242905" />
+    <state x="541" y="265" key="Github.ShareDialog/0.0.1366.738@0.0.1366.738" timestamp="1601949865961" />
+    <state x="425" y="73" key="Github.UntrackedFilesDialog" timestamp="1601949892176">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="425" y="73" key="Github.UntrackedFilesDialog/0.0.1366.738@0.0.1366.738" timestamp="1601949892176" />
     <state width="1322" height="189" key="GridCell.Tab.0.bottom" timestamp="1601949292127">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -110,6 +139,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1366.738@0.0.1366.738" timestamp="1601920808376" />
+    <state x="275" y="101" key="Vcs.Push.Dialog.v2" timestamp="1601949963405">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1601949963405" />
     <state x="203" y="51" width="818" height="661" key="new project wizard" timestamp="1601902513242">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
