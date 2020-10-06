@@ -1,6 +1,6 @@
 name: share_options
 description: A Flutter plugin for retrieving all share options and share texts over any of them.
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/MoGaaber/share_options
 
 environment:
