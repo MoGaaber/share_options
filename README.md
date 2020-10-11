@@ -102,7 +102,7 @@ class _MyAppState extends State<MyApp> {
  
 ## Buy me a coffee 
 
-**Supporting me by clicking the below button ** 
+**Supporting me by clicking the below button** 
 
 <a href="https://www.buymeacoffee.com/mogaber" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
