@@ -1,7 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="66855249-0586-4460-afe8-9dd884a83200" name="Default Changelist" comment="." />
+    <list default="true" id="66855249-0586-4460-afe8-9dd884a83200" name="Default Changelist" comment=".">
+      <change afterPath="$PROJECT_DIR$/android/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/get_share_options/MethodCallHandlerImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/get_share_options/ShareOptions.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/src/content.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/example/get_share_options/ShareOptionsPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/get_share_options/ShareOptionsPlugin.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/share_options.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/share_options.dart" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,6 +43,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Kotlin Script" />
         <option value="Dart File" />
       </list>
     </option>
@@ -28,12 +62,14 @@
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/android" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\projects\flutter\cv\share_options\android\src\main\kotlin\com\example\get_share_options\data_classes" />
+      <recent name="E:\projects\flutter\cv\share_options\android\src\main\kotlin\com\example\get_share_options" />
       <recent name="E:\projects\flutter\cv\get_share_options\get_share_options\lib\src" />
     </key>
   </component>
@@ -76,8 +112,27 @@
       <option name="project" value="LOCAL" />
       <updated>1601950587581</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary=".">
+      <created>1601950867891</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1601950867891</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="." />
@@ -92,10 +147,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1601922515920" />
-    <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1601931629669">
+    <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1602191096649">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1601931629669" />
+    <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1602191096649" />
     <state x="541" y="265" key="Github.ShareDialog" timestamp="1601949865961">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -104,22 +159,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="425" y="73" key="Github.UntrackedFilesDialog/0.0.1366.738@0.0.1366.738" timestamp="1601949892176" />
-    <state width="1322" height="189" key="GridCell.Tab.0.bottom" timestamp="1601949292127">
+    <state width="661" height="247" key="GridCell.Tab.0.bottom" timestamp="1602189050264">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="189" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1601949292127" />
-    <state width="1322" height="189" key="GridCell.Tab.0.center" timestamp="1601949292127">
+    <state width="661" height="247" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1602189050264" />
+    <state width="661" height="247" key="GridCell.Tab.0.center" timestamp="1602189050264">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="189" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1601949292127" />
-    <state width="1322" height="189" key="GridCell.Tab.0.left" timestamp="1601949292126">
+    <state width="661" height="247" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1602189050264" />
+    <state width="661" height="247" key="GridCell.Tab.0.left" timestamp="1602189050264">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="189" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1601949292126" />
-    <state width="1322" height="189" key="GridCell.Tab.0.right" timestamp="1601949292127">
+    <state width="661" height="247" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1602189050264" />
+    <state width="661" height="247" key="GridCell.Tab.0.right" timestamp="1602189050264">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="189" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1601949292127" />
+    <state width="661" height="247" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1602189050264" />
     <state width="1322" height="221" key="GridCell.Tab.1.bottom" timestamp="1601773556471">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -148,10 +203,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1366.738@0.0.1366.738" timestamp="1601920808376" />
-    <state x="275" y="101" key="Vcs.Push.Dialog.v2" timestamp="1601950588774">
+    <state x="275" y="101" key="Vcs.Push.Dialog.v2" timestamp="1601950868987">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1601950588774" />
+    <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1601950868987" />
     <state x="203" y="51" width="818" height="661" key="new project wizard" timestamp="1601902513242">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

@@ -2,12 +2,13 @@ import 'dart:typed_data';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+import 'package:share_options/src/content.dart';
 
 import 'activity_info.dart';
 
-const MethodChannel _channel = const MethodChannel('share_options');
-
 class ShareOption {
+  static const _channel = MethodChannel('share_options');
+
   /// Share option name
   final String name;
 
@@ -36,9 +37,9 @@ class ShareOption {
 
   /// open share intent
   /// [sharedText] is a text which you managed to share it
-  Future<void> share({@required String sharedText}) async {
+  Future<void> share(Content content) async {
     await _channel.invokeMethod('share',
-        {"activityInfo": _activityInfo.toMap(), "sharedText": sharedText});
+        {"activityInfo": _activityInfo.toMap(), "content": content.toMap()});
   }
 
   ShareOption copyWith({
@@ -87,7 +88,6 @@ class ShareOption {
   Map toMap() => {
         'name': this.name,
         'icon': this.icon,
-        '_activityInfo': this._activityInfo,
       };
 
   static List<ShareOption> _shareOptionsFromMapList(List shareOptions) =>

@@ -1,3 +1,4 @@
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:share_options/share_options.dart';
 
@@ -40,8 +41,16 @@ class _MyAppState extends State<MyApp> {
 
                         return ListTile(
                           leading: Image.memory(shareOption.icon),
-                          onTap: () =>
-                              shareOption.share(sharedText: 'hello world'),
+                          onTap: () async {
+                            var files = await FilePicker.platform
+                                .pickFiles(allowMultiple: true);
+                            shareOption.share(sharedContent: {
+                              "text": "heelo",
+                              "title": "world",
+                              "filePath":
+                                  files.files.map((e) => e.path).toList()
+                            });
+                          },
                           title: Text(shareOptions[index].name),
                         );
                       },
