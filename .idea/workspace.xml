@@ -20,20 +20,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66855249-0586-4460-afe8-9dd884a83200" name="Default Changelist" comment=".">
-      <change afterPath="$PROJECT_DIR$/android/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/get_share_options/MethodCallHandlerImpl.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/get_share_options/ShareOptions.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/content.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/get_share_options/ShareFileProvider.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/example/get_share_options/MethodCallHandlerImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/get_share_options/MethodCallHandlerImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/example/get_share_options/ShareOptions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/get_share_options/ShareOptions.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/example/get_share_options/ShareOptionsPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/get_share_options/ShareOptionsPlugin.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/share_options.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/share_options.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/content.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/content.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/share_options.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/share_options.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +64,7 @@
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/android" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../olx-clone" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -147,10 +149,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1601922515920" />
-    <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1602191096649">
+    <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1602513589223">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1602191096649" />
+    <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1602513589223" />
     <state x="541" y="265" key="Github.ShareDialog" timestamp="1601949865961">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -159,22 +161,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="425" y="73" key="Github.UntrackedFilesDialog/0.0.1366.738@0.0.1366.738" timestamp="1601949892176" />
-    <state width="661" height="247" key="GridCell.Tab.0.bottom" timestamp="1602189050264">
+    <state width="1322" height="186" key="GridCell.Tab.0.bottom" timestamp="1602713589660">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="661" height="247" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1602189050264" />
-    <state width="661" height="247" key="GridCell.Tab.0.center" timestamp="1602189050264">
+    <state width="1322" height="186" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1602713589660" />
+    <state width="1322" height="186" key="GridCell.Tab.0.center" timestamp="1602713589659">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="661" height="247" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1602189050264" />
-    <state width="661" height="247" key="GridCell.Tab.0.left" timestamp="1602189050264">
+    <state width="1322" height="186" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1602713589659" />
+    <state width="1322" height="186" key="GridCell.Tab.0.left" timestamp="1602713589659">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="661" height="247" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1602189050264" />
-    <state width="661" height="247" key="GridCell.Tab.0.right" timestamp="1602189050264">
+    <state width="1322" height="186" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1602713589659" />
+    <state width="1322" height="186" key="GridCell.Tab.0.right" timestamp="1602713589660">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="661" height="247" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1602189050264" />
+    <state width="1322" height="186" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1602713589660" />
     <state width="1322" height="221" key="GridCell.Tab.1.bottom" timestamp="1601773556471">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -211,5 +213,9 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="203" y="51" width="818" height="661" key="new project wizard/0.0.1366.738@0.0.1366.738" timestamp="1601902513242" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1602659650985">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1602659650985" />
   </component>
 </project>
