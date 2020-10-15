@@ -7,12 +7,12 @@ import 'dart:typed_data';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:mime/mime.dart' show lookupMimeType;
 
 import 'activity_info.dart';
 import 'content.dart';
 
-class ShareOption {
+class ShareOptions {
+  /// Method channel
   static const _channel = MethodChannel('share_options');
 
   static SharedContent _sharedContent;
@@ -26,97 +26,50 @@ class ShareOption {
 
   /// private field , it works internally and not visible out this file
   /// it uses in open share intent
-  final ActivityInfo _activityInfo;
+  final ActivityInfo activityInfo;
 
   /// private constructor , it works internally and not visible out this file
-  /// to assign values to [ShareOption]
-  ShareOption._shareOption({
+  /// to assign values to [ShareOptions._shareOption]
+  ShareOptions._shareOption({
     @required this.name,
     @required this.icon,
-    @required ActivityInfo activityInfo,
-  }) : _activityInfo = activityInfo;
+    @required this.activityInfo,
+  });
 
-  /// get a list of all [ShareOption] available in device
-  static Future<List<ShareOption>> getShareOptions(
-      SharedContent sharedContent) async {
-    _sharedContent = sharedContent;
-    List shareOptions = await _channel
-        .invokeMethod('getShareOptions', {"paths": sharedContent.paths});
-    return _shareOptionsFromMapList(shareOptions);
+  /// get a list of all [ShareOptions]
+  /// if you pass [sharedContent.paths] it will retrieve all available sharing app/intent/options which can be receive this [sharedContent]
+  /// if you pass null to [sharedContent] or [sharedContent.paths] it will retrieve all available sharing app/intent/options on device
+
+  static Future<List<ShareOptions>> getShareOptions(
+      {SharedContent sharedContent}) async {
+    _sharedContent = sharedContent ?? SharedContent();
+
+    var shareOptions = await _channel.invokeMethod<List>(
+        'getShareOptions', _sharedContent.toSpecificMap);
+    return shareOptions
+        .map((e) => ShareOptions._fromMap(Map<String, dynamic>.from(e)))
+        .toList();
   }
 
   /// open share intent
   /// [sharedText] is a text which you managed to share it
   Future<void> share() async {
-    var parameters = Map<String, dynamic>.from(_activityInfo.toMap());
-
-    parameters.addAll(_sharedContent.toMap());
-
-    await _channel.invokeMethod('share', parameters);
+    await _channel.invokeMethod(
+        'share', {...activityInfo.toMap, ..._sharedContent.toMap});
   }
 
-  // static Future<void> share({SharedContent sharedContent}) async {
-  //    var parameters = Map<String, dynamic>.from(_activityInfo.toMap());
-  //
-  //    parameters.addAll(sharedContent.toMap());
-  //    print(parameters);
-  //    await _channel.invokeMethod('share', parameters);
-  //  }
-
-  static List<String> _mimeTypeForPath(List<String> paths) {
-    return paths
-        .map((e) => lookupMimeType(e) ?? 'application/octet-stream')
-        .toList();
+  /// custom open share option/app/intent
+  static Future<void> customShare(
+      SharedContent sharedContent, ActivityInfo activityInfo) async {
+    await _channel
+        .invokeMethod('share', {...activityInfo.toMap, ...sharedContent.toMap});
   }
 
-  ShareOption copyWith({
-    String name,
-    String icon,
-    ActivityInfo activityInfo,
-  }) {
-    if ((name == null || identical(name, this.name)) &&
-        (icon == null || identical(icon, this.icon)) &&
-        (activityInfo == null || identical(activityInfo, this._activityInfo))) {
-      return this;
-    }
-
-    return new ShareOption._shareOption(
-      name: name ?? this.name,
-      icon: icon ?? this.icon,
-      activityInfo: activityInfo ?? this._activityInfo,
-    );
-  }
-
-  @override
-  String toString() {
-    return 'ShareOptions{name: $name, icon: $icon, _activityInfo: $_activityInfo}';
-  }
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      (other is ShareOption &&
-          runtimeType == other.runtimeType &&
-          name == other.name &&
-          icon == other.icon &&
-          _activityInfo == other._activityInfo);
-
-  @override
-  int get hashCode => name.hashCode ^ icon.hashCode ^ _activityInfo.hashCode;
-
-  factory ShareOption._fromMap(Map map) {
-    return new ShareOption._shareOption(
-      name: map['name'] as String,
-      icon: map['icon'] as Uint8List,
-      activityInfo: ActivityInfo.fromMap(map['activityInfo']),
-    );
-  }
-
-  Map toMap() => {
-        'name': this.name,
-        'icon': this.icon,
-      };
-
-  static List<ShareOption> _shareOptionsFromMapList(List shareOptions) =>
-      shareOptions.map((e) => ShareOption._fromMap(e)).toList();
+  factory ShareOptions._fromMap(Map<String, dynamic> map) =>
+      ShareOptions._shareOption(
+        name: map['name'] as String,
+        icon: map['icon'] as Uint8List,
+        activityInfo:
+            ActivityInfo.fromMap(Map<String, String>.from(map['activityInfo'])),
+      );
 }

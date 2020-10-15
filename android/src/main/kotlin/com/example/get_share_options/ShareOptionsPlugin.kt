@@ -10,21 +10,19 @@ import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
 import io.flutter.plugin.common.BinaryMessenger
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
-import io.flutter.plugin.common.PluginRegistry.Registrar
 
-/** Plugin method host for presenting a share sheet via Intent  */
 class ShareOptionsPlugin : FlutterPlugin, ActivityAware {
-    //    fun registerWith(registrar: Registrar) {
-//        val plugin = ShareOptionsPlugin()
-//        plugin.setUpChannel(registrar.context(), registrar.activity(), registrar.messenger())
-//    }
+    companion object {
+        private const val CHANNEL = "share_options"
+    }
 
     private var handler: MethodCallHandler? = null
     private var share: ShareOptions? = null
     private var methodChannel: MethodChannel? = null
+
     override fun onAttachedToEngine(binding: FlutterPluginBinding) {
         Log.d("Plugin","attached")
-        setUpChannel(binding.applicationContext, null, binding.binaryMessenger)
+        setUpChannel(binding.applicationContext,  binding.binaryMessenger)
     }
 
     override fun onDetachedFromEngine(binding: FlutterPluginBinding) {
@@ -36,15 +34,13 @@ class ShareOptionsPlugin : FlutterPlugin, ActivityAware {
     }
 
     override fun onAttachedToActivity(binding: ActivityPluginBinding) {
-        Log.d("Plugin","onAttachedToActivity")
-
         share?.setActivity(binding.activity)
     }
 
     override fun onDetachedFromActivity() {
         Log.d("Plugin","onDetachedFromActivity")
-
-        tearDownChannel()
+        share?.setActivity(null)
+        methodChannel!!.setMethodCallHandler(null)
     }
 
     override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
@@ -59,24 +55,15 @@ class ShareOptionsPlugin : FlutterPlugin, ActivityAware {
         onDetachedFromActivity()
     }
 
-    private fun setUpChannel(context: Context, activity: Activity?, messenger: BinaryMessenger) {
+    private fun setUpChannel(context: Context, messenger: BinaryMessenger) {
         Log.d("Plugin","setUpChannel")
 
         methodChannel = MethodChannel(messenger, Companion.CHANNEL)
-        share = ShareOptions(context, activity)
+        share = ShareOptions(context)
         handler = MethodCallHandler(share!!)
         methodChannel!!.setMethodCallHandler(handler)
     }
 
-    private fun tearDownChannel() {
-        Log.d("Plugin","tearDownChannel")
 
-        share?.setActivity(null)
-        methodChannel!!.setMethodCallHandler(null)
-    }
-
-    companion object {
-        private const val CHANNEL = "share_options"
-    }
 
 }

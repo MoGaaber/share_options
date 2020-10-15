@@ -1,9 +1,13 @@
 import 'package:flutter/foundation.dart';
 
 class ActivityInfo {
-  final String name, packageName;
+  /// Name of share intent.
+  final String name;
 
-  ActivityInfo._({
+  /// Package name of share intent.
+  final String packageName;
+
+  const ActivityInfo({
     @required this.name,
     @required this.packageName,
   });
@@ -12,7 +16,7 @@ class ActivityInfo {
     String name,
     String packageName,
   }) {
-    return ActivityInfo._(
+    return ActivityInfo(
       name: name ?? this.name,
       packageName: packageName ?? this.packageName,
     );
@@ -34,14 +38,10 @@ class ActivityInfo {
   @override
   int get hashCode => name.hashCode ^ packageName.hashCode;
 
-  factory ActivityInfo.fromMap(Map map) {
-    return new ActivityInfo._(
-      name: map['name'] as String,
-      packageName: map['packageName'] as String,
-    );
-  }
+  factory ActivityInfo.fromMap(Map<String, String> map) =>
+      ActivityInfo(name: map['name'], packageName: map['packageName']);
 
-  Map<String, String> toMap() => {
+  Map<String, String> get toMap => {
         'name': this.name,
         'packageName': this.packageName,
       };

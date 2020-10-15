@@ -12,16 +12,18 @@ internal class MethodCallHandler(private val shareOptions: ShareOptions) : Metho
         when (call.method) {
 
             "share" -> onShare(call, result)
-            "getShareOptions" -> onGetShareOptions(call,result)
+            "getShareOptions" -> onGetShareOptions(call, result)
             else -> result.notImplemented()
         }
     }
 
-    private fun onGetShareOptions(call: MethodCall,result: MethodChannel.Result) {
+    private fun onGetShareOptions(call: MethodCall, result: MethodChannel.Result) {
         try {
+            val text = call.argument<String>("text")
+
             val paths = call.argument<List<String>>("paths")
 
-            result.success(shareOptions.getShareOptions(paths))
+            result.success(shareOptions.getShareOptions(text, paths))
 
         } catch (e: Throwable) {
             result.error(e.message, null, null);
@@ -40,7 +42,9 @@ internal class MethodCallHandler(private val shareOptions: ShareOptions) : Metho
             shareOptions.share(paths, text, subject, name, packageName)
             result.success(null)
         } catch (e: Throwable) {
-            result.error(e.message, null, null)
+//e.cause
+            result.error("0", "Can't found this share app which matches this class or package name on this device",null)
+//            result.error(e.message, e.localizedMessage, e)
         }
     }
 

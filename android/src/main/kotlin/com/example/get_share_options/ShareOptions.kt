@@ -7,7 +7,6 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Environment
-import android.util.Log
 import android.webkit.MimeTypeMap
 import androidx.core.content.FileProvider
 import com.example.get_share_options.data_classes.ResolveInfoData
@@ -15,26 +14,25 @@ import java.io.*
 import java.util.*
 
 
-internal class ShareOptions(private val context: Context?, private var activity: Activity?) {
+internal class ShareOptions(private val context: Context?) {
+    private  var activity: Activity?=null
 
     fun setActivity(activity: Activity?) {
         this.activity = activity
     }
 
-    private fun getShareIntent(paths: List<String?>?): Intent {
+    private fun getShareIntent( text: String?,paths: List<String?>?): Intent {
         var shareIntent: Intent = Intent()
+
         if (paths.isNullOrEmpty()) {
-            shareIntent = share(shareIntent)
-        }
+            shareIntent = share(shareIntent,text)
 
-        else {
-
+        } else {
             val fileUris = getUrisForPaths(paths)
             val mimeTypes: List<String?> = fileUris.map { e -> getMimeType(e) }
-            Log.d("tag", mimeTypes.toString())
             when {
                 fileUris.isEmpty() -> {
-                    shareIntent = share(shareIntent)
+                    shareIntent = share(shareIntent,text)
 
                 }
                 fileUris.size == 1 -> {
@@ -57,14 +55,14 @@ internal class ShareOptions(private val context: Context?, private var activity:
     }
 
 
-    private fun getShareOptionsDataClass(paths: List<String>?): List<ResolveInfoData> {
+    private fun getShareOptionsDataClass( text: String?,paths: List<String>?): List<ResolveInfoData> {
 
         val packageManager = getContext().packageManager
 
         ResolveInfoData.packageManager = packageManager
 
         val intents = packageManager.queryIntentActivities(
-                getShareIntent(paths),
+                getShareIntent(text,paths),
                 0
         )
 
@@ -73,18 +71,13 @@ internal class ShareOptions(private val context: Context?, private var activity:
     }
 
 
-    fun getShareOptions(paths: List<String>?): List<Map<String, Any>> {
+    fun getShareOptions( text: String?,paths: List<String>?): List<Map<String, Any>> {
 
-        return ResolveInfoData.toMaps(getShareOptionsDataClass(paths))
+        return ResolveInfoData.toMaps(getShareOptionsDataClass(text,paths))
     }
 
 
-    private fun share(shareIntent: Intent): Intent {
-        shareIntent.action = Intent.ACTION_SEND
-        shareIntent.type = "text/plain"
 
-        return shareIntent
-    }
 
     private fun getMimeType(uri: Uri): String? {
         var mimeType: String? = null
@@ -100,12 +93,23 @@ internal class ShareOptions(private val context: Context?, private var activity:
         return mimeType
     }
 
+    private fun share(shareIntent: Intent,text:String?): Intent {
+        shareIntent.action = Intent.ACTION_SEND
 
+        if (text == null) {
+            shareIntent.type = "*/*"
+        } else {
+            shareIntent.type = "text/plain"
+
+        }
+
+        return shareIntent
+    }
     fun share(paths: List<String?>?, text: String?, subject: String?, name: String, packageName: String) {
-        var shareIntent = getShareIntent(paths)
+        var shareIntent = getShareIntent(text, paths)
 
         if (paths.isNullOrEmpty()) {
-            shareIntent = share(shareIntent)
+            shareIntent = share(shareIntent,text)
 
         } else {
 
@@ -114,7 +118,7 @@ internal class ShareOptions(private val context: Context?, private var activity:
             val fileUris = getUrisForPaths(paths)
             when {
                 fileUris.isEmpty() -> {
-                    shareIntent = share(shareIntent)
+                    shareIntent = share(shareIntent,text)
 
                 }
                 fileUris.size == 1 -> {
@@ -129,9 +133,9 @@ internal class ShareOptions(private val context: Context?, private var activity:
             }
 
         }
-        if (!text.isNullOrBlank()) shareIntent.putExtra(Intent.EXTRA_TEXT, text)
+        if (text!=null) shareIntent.putExtra(Intent.EXTRA_TEXT, text)
 
-        if (!subject.isNullOrBlank()) shareIntent.putExtra(Intent.EXTRA_SUBJECT, subject)
+        if (subject!=null) shareIntent.putExtra(Intent.EXTRA_SUBJECT, subject)
 
         shareIntent.component = ComponentName(
                 packageName,

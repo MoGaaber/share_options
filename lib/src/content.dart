@@ -1,8 +1,7 @@
 class SharedContent {
-  final String text, subject;
+  final String text;
+  final String subject;
   final List<String> paths;
-
-//<editor-fold desc="Data Methods" defaultstate="collapsed">
 
   const SharedContent({
     this.text,
@@ -21,7 +20,7 @@ class SharedContent {
       return this;
     }
 
-    return new SharedContent(
+    return SharedContent(
       text: text ?? this.text,
       subject: subject ?? this.subject,
       paths: filesPaths ?? this.paths,
@@ -45,22 +44,13 @@ class SharedContent {
   @override
   int get hashCode => text.hashCode ^ subject.hashCode ^ paths.hashCode;
 
-  factory SharedContent.fromMap(Map<String, dynamic> map) {
-    return new SharedContent(
-      text: map['text'] as String,
-      subject: map['subject'] as String,
-      paths: map['paths'] as List<String>,
-    );
-  }
-
-  Map<String, dynamic> toMap() {
-    return {
-      'text': this.text,
-      'subject': this.subject,
-      'paths': this.paths,
-    };
-  }
-
-//</editor-fold>
-
+  Map<String, dynamic> get toMap => {
+        'text': this.text,
+        'subject': this.subject,
+        'paths': this.paths,
+      };
+  Map<String, dynamic> get toSpecificMap => {
+        'text': this.text,
+        'paths': this.paths,
+      };
 }
