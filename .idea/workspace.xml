@@ -20,21 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66855249-0586-4460-afe8-9dd884a83200" name="Default Changelist" comment="1- add share files feature &#10;2- improve structure and design">
-      <change afterPath="$PROJECT_DIR$/example/lib/logic.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/lib/ui/dialogs/custom_share.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/lib/ui/dialogs/filter_options.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/lib/ui/ui.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/lib/ui/dialogs/my_dialog.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/example/get_share_options/MethodCallHandlerImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/get_share_options/MethodCallHandlerImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/example/get_share_options/ShareOptions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/get_share_options/ShareOptions.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/example/get_share_options/ShareOptionsPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/get_share_options/ShareOptionsPlugin.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/logic.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/logic.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/ui/dialogs/custom_share.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/ui/dialogs/filter_options.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/ui/ui.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/ui/ui.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/share_options.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/share_options.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/activity_info.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/activity_info.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/content.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/content.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/share_options.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/share_options.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602714036215</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="1- add share files feature &#10;2- improve structure and design">
+      <created>1602784094636</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1602784094637</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -154,10 +159,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="445" y="170" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.738@0.0.1366.738" timestamp="1601950424926" />
-    <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser" timestamp="1601922515920">
+    <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser" timestamp="1602787985919">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1601922515920" />
+    <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1602787985919" />
     <state x="363" y="104" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1602771271965">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -174,22 +179,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="425" y="73" key="Github.UntrackedFilesDialog/0.0.1366.738@0.0.1366.738" timestamp="1601949892176" />
-    <state width="1322" height="245" key="GridCell.Tab.0.bottom" timestamp="1602784033309">
+    <state width="661" height="206" key="GridCell.Tab.0.bottom" timestamp="1602804847149">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="245" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1602784033309" />
-    <state width="1322" height="245" key="GridCell.Tab.0.center" timestamp="1602784033309">
+    <state width="661" height="206" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1602804847149" />
+    <state width="661" height="206" key="GridCell.Tab.0.center" timestamp="1602804847149">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="245" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1602784033309" />
-    <state width="1322" height="245" key="GridCell.Tab.0.left" timestamp="1602784033309">
+    <state width="661" height="206" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1602804847149" />
+    <state width="661" height="206" key="GridCell.Tab.0.left" timestamp="1602804847148">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="245" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1602784033309" />
-    <state width="1322" height="245" key="GridCell.Tab.0.right" timestamp="1602784033309">
+    <state width="661" height="206" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1602804847148" />
+    <state width="661" height="206" key="GridCell.Tab.0.right" timestamp="1602804847149">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="245" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1602784033309" />
+    <state width="661" height="206" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1602804847149" />
     <state width="1322" height="221" key="GridCell.Tab.1.bottom" timestamp="1601773556471">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -218,18 +223,18 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1366.738@0.0.1366.738" timestamp="1601920808376" />
-    <state x="275" y="101" key="Vcs.Push.Dialog.v2" timestamp="1602714042153">
+    <state x="275" y="101" key="Vcs.Push.Dialog.v2" timestamp="1602784098504">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1602714042153" />
+    <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1602784098504" />
     <state x="203" y="51" width="818" height="661" key="new project wizard" timestamp="1601902513242">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="203" y="51" width="818" height="661" key="new project wizard/0.0.1366.738@0.0.1366.738" timestamp="1601902513242" />
-    <state x="173" y="159" key="run.anything.popup" timestamp="1602723702809">
+    <state x="173" y="159" key="run.anything.popup" timestamp="1602804556361">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="173" y="159" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1602723702809" />
+    <state x="173" y="159" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1602804556361" />
     <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1602659650985">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

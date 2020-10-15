@@ -1,13 +1,25 @@
+import 'dart:io';
+
 class SharedContent {
   final String text;
   final String subject;
-  final List<String> paths;
+  final List<String> filePaths;
 
   const SharedContent({
-    this.text,
+    this.text = "",
+    this.filePaths = const [],
     this.subject,
-    this.paths,
   });
+
+  bool get isValid => !isEmptyText && !isEmptyPaths && !isPathsExist;
+
+  // bool get isEmpty => text.isEmpty && filePaths.isEmpty ?? true;
+  //
+  // bool get isNull => text == null && filePaths == null;
+  bool get isEmptyText => text == null ? true : text.isEmpty;
+  bool get isEmptyPaths => filePaths == null ? true : filePaths.isEmpty;
+
+  bool get isPathsExist => filePaths.every((e) => File(e).existsSync());
 
   SharedContent copyWith({
     String text,
@@ -16,20 +28,20 @@ class SharedContent {
   }) {
     if ((text == null || identical(text, this.text)) &&
         (subject == null || identical(subject, this.subject)) &&
-        (filesPaths == null || identical(filesPaths, this.paths))) {
+        (filesPaths == null || identical(filesPaths, this.filePaths))) {
       return this;
     }
 
     return SharedContent(
       text: text ?? this.text,
       subject: subject ?? this.subject,
-      paths: filesPaths ?? this.paths,
+      filePaths: filesPaths ?? this.filePaths,
     );
   }
 
   @override
   String toString() {
-    return 'SharedContent{text: $text, subject: $subject, paths: $paths}';
+    return 'SharedContent{text: $text, subject: $subject, paths: $filePaths}';
   }
 
   @override
@@ -39,18 +51,19 @@ class SharedContent {
           runtimeType == other.runtimeType &&
           text == other.text &&
           subject == other.subject &&
-          paths == other.paths);
+          filePaths == other.filePaths);
 
   @override
-  int get hashCode => text.hashCode ^ subject.hashCode ^ paths.hashCode;
+  int get hashCode => text.hashCode ^ subject.hashCode ^ filePaths.hashCode;
 
   Map<String, dynamic> get toMap => {
         'text': this.text,
         'subject': this.subject,
-        'paths': this.paths,
+        'paths': this.filePaths,
       };
+
   Map<String, dynamic> get toSpecificMap => {
         'text': this.text,
-        'paths': this.paths,
+        'paths': this.filePaths,
       };
 }

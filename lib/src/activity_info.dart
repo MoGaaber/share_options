@@ -1,30 +1,23 @@
-import 'package:flutter/foundation.dart';
-
 class ActivityInfo {
   /// Name of share intent.
-  final String name;
+  final String className;
 
   /// Package name of share intent.
   final String packageName;
 
-  const ActivityInfo({
-    @required this.name,
-    @required this.packageName,
-  });
+  const ActivityInfo(
+    this.className,
+    this.packageName,
+  );
 
-  ActivityInfo copyWith({
-    String name,
-    String packageName,
-  }) {
-    return ActivityInfo(
-      name: name ?? this.name,
-      packageName: packageName ?? this.packageName,
-    );
+  bool get valid {
+    var regexp = RegExp(r'^([A-Za-z]{1}[A-Za-z\d_]*\.)*[A-Za-z][A-Za-z\d_]*$');
+    return regexp.hasMatch(packageName) && regexp.hasMatch(className);
   }
 
   @override
   String toString() {
-    return 'ActivityInfo{name: $name, packageName: $packageName}';
+    return 'ActivityInfo{name: $className, packageName: $packageName}';
   }
 
   @override
@@ -32,17 +25,17 @@ class ActivityInfo {
       identical(this, other) ||
       (other is ActivityInfo &&
           runtimeType == other.runtimeType &&
-          name == other.name &&
+          className == other.className &&
           packageName == other.packageName);
 
   @override
-  int get hashCode => name.hashCode ^ packageName.hashCode;
+  int get hashCode => className.hashCode ^ packageName.hashCode;
 
   factory ActivityInfo.fromMap(Map<String, String> map) =>
-      ActivityInfo(name: map['name'], packageName: map['packageName']);
+      ActivityInfo(map['name'], map['packageName']);
 
   Map<String, String> get toMap => {
-        'name': this.name,
+        'name': this.className,
         'packageName': this.packageName,
       };
 }

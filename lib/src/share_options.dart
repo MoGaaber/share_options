@@ -36,16 +36,24 @@ class ShareOptions {
     @required this.activityInfo,
   });
 
-  /// get a list of all [ShareOptions]
-  /// if you pass [sharedContent.paths] it will retrieve all available sharing app/intent/options which can be receive this [sharedContent]
-  /// if you pass null to [sharedContent] or [sharedContent.paths] it will retrieve all available sharing app/intent/options on device
+  static void _sharedContentValidator(SharedContent sharedContent) {
+    if (sharedContent.isEmptyText && sharedContent.isEmptyPaths) {
+      throw FormatException("Empty shared content");
+    } else if (!sharedContent.isPathsExist) {
+      throw FormatException("Invalid paths");
+    }
+  }
+
+  /// get a list of all [ShareOptions] which can be receive this [sharedContent]
+  /// throw exception if provide empty [sharedContent.text ] and [sharedContent.filePaths] or invalid  [sharedContent.filePaths]
 
   static Future<List<ShareOptions>> getShareOptions(
-      {SharedContent sharedContent}) async {
-    _sharedContent = sharedContent ?? SharedContent();
+      SharedContent sharedContent) async {
+    _sharedContentValidator(sharedContent);
 
+    _sharedContent = sharedContent;
     var shareOptions = await _channel.invokeMethod<List>(
-        'getShareOptions', _sharedContent.toSpecificMap);
+        'getShareOptions', sharedContent.toSpecificMap);
     return shareOptions
         .map((e) => ShareOptions._fromMap(Map<String, dynamic>.from(e)))
         .toList();
@@ -61,6 +69,11 @@ class ShareOptions {
   /// custom open share option/app/intent
   static Future<void> customShare(
       SharedContent sharedContent, ActivityInfo activityInfo) async {
+    _sharedContentValidator(sharedContent);
+
+    if (!activityInfo.valid) {
+      throw FormatException("invalid activity info");
+    }
     await _channel
         .invokeMethod('share', {...activityInfo.toMap, ...sharedContent.toMap});
   }
@@ -72,4 +85,9 @@ class ShareOptions {
         activityInfo:
             ActivityInfo.fromMap(Map<String, String>.from(map['activityInfo'])),
       );
+
+  @override
+  String toString() {
+    return 'ShareOptions{name: $name, icon: $icon, activityInfo: $activityInfo}';
+  }
 }
