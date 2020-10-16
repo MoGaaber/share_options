@@ -1,25 +1,28 @@
-import 'dart:io';
-
 class SharedContent {
   final String text;
   final String subject;
   final List<String> filePaths;
 
   const SharedContent({
-    this.text = "",
-    this.filePaths = const [],
+    this.text,
+    this.filePaths,
     this.subject,
   });
 
-  bool get isValid => !isEmptyText && !isEmptyPaths && !isPathsExist;
+  // bool get isValid => !isEmptyText && !isEmptyPaths && !isPathsExist;
 
   // bool get isEmpty => text.isEmpty && filePaths.isEmpty ?? true;
   //
   // bool get isNull => text == null && filePaths == null;
-  bool get isEmptyText => text == null ? true : text.isEmpty;
-  bool get isEmptyPaths => filePaths == null ? true : filePaths.isEmpty;
+  // bool get isEmptyText => text == null ? true : text.isEmpty;
+  //
+  // bool get isEmptyPaths => filePaths == null ? true : notNullFilePaths.isEmpty;
+  // List<String> get notNullFilePaths =>
+  //     filePaths.where((element) => element != null).toList();
 
-  bool get isPathsExist => filePaths.every((e) => File(e).existsSync());
+  // bool get isPathsExist => notNullFilePaths.isEmpty
+  //     ? false
+  //     : notNullFilePaths.where((e) => File(e).existsSync());
 
   SharedContent copyWith({
     String text,

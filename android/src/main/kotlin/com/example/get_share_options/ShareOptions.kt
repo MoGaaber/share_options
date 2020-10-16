@@ -5,6 +5,7 @@ import android.content.ComponentName
 import android.content.ContentResolver
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Environment
 import android.webkit.MimeTypeMap
@@ -14,40 +15,56 @@ import java.io.*
 import java.util.*
 
 
-internal class ShareOptions(private val context: Context?) {
-    private  var activity: Activity?=null
+internal class ShareOptions(private val context: Context) {
+    private var activity: Activity? = null
 
     fun setActivity(activity: Activity?) {
         this.activity = activity
     }
 
-    private fun getShareIntent( text: String?,paths: List<String?>?): Intent {
+    private fun getShareIntent(text: String?, paths: List<String?>?): Intent {
         var shareIntent: Intent = Intent()
 
         if (paths.isNullOrEmpty()) {
-            shareIntent = share(shareIntent,text)
+            shareIntent = share(shareIntent, text)
 
         } else {
-            val fileUris = getUrisForPaths(paths)
-            val mimeTypes: List<String?> = fileUris.map { e -> getMimeType(e) }
-            when {
-                fileUris.isEmpty() -> {
-                    shareIntent = share(shareIntent,text)
 
-                }
-                fileUris.size == 1 -> {
-                    shareIntent.action = Intent.ACTION_SEND
-                    shareIntent.type = if (mimeTypes.isNotEmpty() && mimeTypes[0] != null) mimeTypes[0] else "*/*"
-                    shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-                }
-                else -> {
-                    shareIntent.action = Intent.ACTION_SEND_MULTIPLE
-                    shareIntent.type = (reduceMimeTypes(mimeTypes));
-                    shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            val existPaths = paths.filter { e -> File(e).exists() }
+            if (existPaths.isNotEmpty()) {
+                var files= paths.map { path->File(path) }
+                val uris = files.map { file->FileProvider.getUriForFile(context, context.packageName.toString() + ".provider", file) }
 
+
+                val fileUris = getUrisForPaths(paths)
+                val mimeTypes: List<String?> = fileUris.map { e -> getMimeType(e) }
+                when {
+                    fileUris.isEmpty() -> {
+                        shareIntent = share(shareIntent, text)
+
+                    }
+                    fileUris.size == 1 -> {
+                        shareIntent.action = Intent.ACTION_SEND
+                        shareIntent.type = if (mimeTypes.isNotEmpty() && mimeTypes[0] != null) mimeTypes[0] else "*/*"
+                        shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                    }
+                    else -> {
+                        shareIntent.action = Intent.ACTION_SEND_MULTIPLE
+                        val mimetypes = arrayOf("image/*", "video/*")
+//                        shareIntent.type = ("x-world/x-3dmf");
+                        shareIntent.type = ("image/*,video/*,x-world/x-3dmf");
+
+//                        shareIntent.putExtra(Intent.EXTRA_MIME_TYPES, mimetypes)
+
+                        shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+
+                    }
                 }
+
+            } else {
+                shareIntent = share(shareIntent, text)
+
             }
-
         }
 
 
@@ -55,14 +72,14 @@ internal class ShareOptions(private val context: Context?) {
     }
 
 
-    private fun getShareOptionsDataClass( text: String?,paths: List<String>?): List<ResolveInfoData> {
+    private fun getShareOptionsDataClass(text: String?, paths: List<String>?): List<ResolveInfoData> {
 
         val packageManager = getContext().packageManager
 
         ResolveInfoData.packageManager = packageManager
 
         val intents = packageManager.queryIntentActivities(
-                getShareIntent(text,paths),
+                getShareIntent(text, paths),
                 0
         )
 
@@ -71,12 +88,10 @@ internal class ShareOptions(private val context: Context?) {
     }
 
 
-    fun getShareOptions( text: String?,paths: List<String>?): List<Map<String, Any>> {
+    fun getShareOptions(text: String?, paths: List<String>?): List<Map<String, Any>> {
 
-        return ResolveInfoData.toMaps(getShareOptionsDataClass(text,paths))
+        return ResolveInfoData.toMaps(getShareOptionsDataClass(text, paths))
     }
-
-
 
 
     private fun getMimeType(uri: Uri): String? {
@@ -85,15 +100,18 @@ internal class ShareOptions(private val context: Context?) {
             val cr: ContentResolver = getContext().contentResolver
             cr.getType(uri)
         } else {
-            val fileExtension = MimeTypeMap.getFileExtensionFromUrl(uri
-                    .toString())
+            val fileExtension = MimeTypeMap.getFileExtensionFromUrl(
+                    uri
+                            .toString()
+            )
             MimeTypeMap.getSingleton().getMimeTypeFromExtension(
-                    fileExtension.toLowerCase())
+                    fileExtension.toLowerCase()
+            )
         }
         return mimeType
     }
 
-    private fun share(shareIntent: Intent,text:String?): Intent {
+    private fun share(shareIntent: Intent, text: String?): Intent {
         shareIntent.action = Intent.ACTION_SEND
 
         if (text == null) {
@@ -105,11 +123,12 @@ internal class ShareOptions(private val context: Context?) {
 
         return shareIntent
     }
+
     fun share(paths: List<String?>?, text: String?, subject: String?, name: String, packageName: String) {
         var shareIntent = getShareIntent(text, paths)
 
         if (paths.isNullOrEmpty()) {
-            shareIntent = share(shareIntent,text)
+            shareIntent = share(shareIntent, text)
 
         } else {
 
@@ -118,7 +137,7 @@ internal class ShareOptions(private val context: Context?) {
             val fileUris = getUrisForPaths(paths)
             when {
                 fileUris.isEmpty() -> {
-                    shareIntent = share(shareIntent,text)
+                    shareIntent = share(shareIntent, text)
 
                 }
                 fileUris.size == 1 -> {
@@ -132,10 +151,25 @@ internal class ShareOptions(private val context: Context?) {
                 }
             }
 
-        }
-        if (text!=null) shareIntent.putExtra(Intent.EXTRA_TEXT, text)
+            val resInfoList = getContext()
+                    .packageManager
+                    .queryIntentActivities(shareIntent, PackageManager.MATCH_DEFAULT_ONLY)
+            for (resolveInfo in resInfoList) {
+                val pkg = resolveInfo.activityInfo.packageName
+                for (fileUri in fileUris) {
+                    getContext()
+                            .grantUriPermission(
+                                    pkg,
+                                    fileUri,
+                                    Intent.FLAG_GRANT_WRITE_URI_PERMISSION or Intent.FLAG_GRANT_READ_URI_PERMISSION
+                            )
+                }
+            }
 
-        if (subject!=null) shareIntent.putExtra(Intent.EXTRA_SUBJECT, subject)
+        }
+        if (text != null) shareIntent.putExtra(Intent.EXTRA_TEXT, text)
+
+        if (subject != null) shareIntent.putExtra(Intent.EXTRA_SUBJECT, subject)
 
         shareIntent.component = ComponentName(
                 packageName,
@@ -198,7 +232,9 @@ internal class ShareOptions(private val context: Context?) {
             }
             uris.add(
                     FileProvider.getUriForFile(
-                            getContext(), getContext().packageName + ".flutter.share_provider", file))
+                            getContext(), getContext().packageName + ".flutter.share_provider", file
+                    )
+            )
         }
         return uris
     }

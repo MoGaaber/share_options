@@ -26,16 +26,16 @@ class Logic extends ChangeNotifier {
         subject: subjectController.text));
   }
 
-  List<ShareOptions> shareOptions;
+  // List<ShareOptions> shareOptions;
 
-  Future<List<ShareOptions>> get getShareOptionss async =>
-      this.shareOptions = await ShareOptions.getShareOptions(
-          SharedContent(text: "", subject: "", filePaths: []));
+  // Future<List<ShareOptions>> get getShareOptionss async =>
+  //     this.shareOptions = await ShareOptions.getShareOptions(
+  //         SharedContent(text: "", subject: "", filePaths: []));
 
-  void share() async {
-    var shareOptions = await getShareOptionss;
-    shareOptions[0].share();
-  }
+  // void share() async {
+  //   var shareOptions = await getShareOptionss;
+  //   shareOptions[0].share();
+  // }
 
   void showFilterOptionsDialog(BuildContext context) {
     showDialog(

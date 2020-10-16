@@ -43,8 +43,8 @@ internal class MethodCallHandler(private val shareOptions: ShareOptions) : Metho
             result.success(null)
         } catch (e: Throwable) {
 //e.cause
-            result.error("0", "Can't found this share app which matches this class or package name on this device",null)
-//            result.error(e.message, e.localizedMessage, e)
+//            result.error("0", "Can't found this share app which matches this class or package name on this device",null)
+            result.error(e.message, e.localizedMessage, e)
         }
     }
 

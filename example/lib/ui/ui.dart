@@ -4,9 +4,25 @@ import 'package:share_options/share_options.dart';
 import 'package:share_options_example/logic.dart';
 
 class Ui extends StatelessWidget {
+  // var filePaths = [null];
+  // bool get isEmptyPaths => filePaths == null ? true : notNullFilePaths.isEmpty;
+  // List<String> get notNullFilePaths =>
+  //     filePaths.where((element) => element != null).toList();
+  //
+  // bool get isPathsExist => notNullFilePaths.isEmpty
+  //     ? false
+  //     : notNullFilePaths.every((e) => File(e).existsSync());
+
   @override
   Widget build(BuildContext context) {
+    ////data/user/0/com.example.get_share_options_example/cache/file_picker/Screenshot_2020-10-14-00-09-39-68.jpg
     var logic = Provider.of<Logic>(context);
+    // ShareOptions.getShareOptions(SharedContent(text: "dd", filePaths: [null]))
+    //     .then((value) => print("value"))
+    //     .catchError((e) => print(e));
+    // FilePicker.platform.pickFiles().then((value) => print(value.paths));
+    print(Uri.file(
+        'data/user/0/com.example.get_share_options_example/cache/file_picker/Screenshot_2020-10-14-00-09-39-68.jpg'));
     return SafeArea(
       child: Scaffold(
           appBar: AppBar(
@@ -38,9 +54,9 @@ class Ui extends StatelessWidget {
               switch (snapshot.connectionState) {
                 case ConnectionState.done:
                   if (snapshot.hasError) {
-                    FormatException e = snapshot.error;
+                    var e = snapshot.error;
 
-                    return Center(child: Text(e.message.toString()));
+                    return Center(child: Text(e.toString()));
                   } else
                     return ListView.separated(
                       padding: EdgeInsets.symmetric(
@@ -48,7 +64,6 @@ class Ui extends StatelessWidget {
                       itemCount: shareOptions.length,
                       itemBuilder: (BuildContext context, int index) {
                         var shareOption = shareOptions[index];
-
                         return ListTile(
                           trailing: Icon(Icons.arrow_forward_ios_sharp),
                           leading: Image.memory(shareOption.icon),

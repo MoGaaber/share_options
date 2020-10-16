@@ -37,11 +37,12 @@ class ShareOptions {
   });
 
   static void _sharedContentValidator(SharedContent sharedContent) {
-    if (sharedContent.isEmptyText && sharedContent.isEmptyPaths) {
-      throw FormatException("Empty shared content");
-    } else if (!sharedContent.isPathsExist) {
-      throw FormatException("Invalid paths");
-    }
+    // if (sharedContent.isEmptyText && sharedContent.isEmptyPaths) {
+    //   throw FormatException("Empty shared content");
+    // }
+    // else if (!sharedContent.isPathsExist && sharedContent.isEmptyText) {
+    //   throw FormatException("Invalid paths and empty text");
+    // }
   }
 
   /// get a list of all [ShareOptions] which can be receive this [sharedContent]
@@ -49,19 +50,25 @@ class ShareOptions {
 
   static Future<List<ShareOptions>> getShareOptions(
       SharedContent sharedContent) async {
-    _sharedContentValidator(sharedContent);
+    // if(sharedContent.filePaths)
 
+/*
+   var mappedSharedContent = sharedContent.toMap;
+    _sharedContentValidator(sharedContent);
     _sharedContent = sharedContent;
+
     var shareOptions = await _channel.invokeMethod<List>(
         'getShareOptions', sharedContent.toSpecificMap);
     return shareOptions
         .map((e) => ShareOptions._fromMap(Map<String, dynamic>.from(e)))
         .toList();
+*/
   }
 
   /// open share intent
   /// [sharedText] is a text which you managed to share it
   Future<void> share() async {
+    print({...activityInfo.toMap, ..._sharedContent.toMap});
     await _channel.invokeMethod(
         'share', {...activityInfo.toMap, ..._sharedContent.toMap});
   }
