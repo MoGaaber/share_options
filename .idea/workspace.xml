@@ -20,19 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66855249-0586-4460-afe8-9dd884a83200" name="Default Changelist" comment="1- add share files feature &#10;2- improve structure and design">
-      <change afterPath="$PROJECT_DIR$/lib/src/text_subject.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/src/share_file_utiltiy.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/logic.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/logic.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/share_options.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/share_options.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/activity_info.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/activity_info.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/content.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/share/file.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/share_options/file.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/share/text.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/share_options/text.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/share_option.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/share_options/share_option.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/share_options.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/share_options.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/test.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/test2.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/share_options/file.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/share_options/file.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/share_options/text.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/share_options/text.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/text_subject.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/text_subject.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603018056877</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="1- add share files feature &#10;2- improve structure and design">
+      <created>1603020925377</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1603020925377</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -197,22 +197,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="425" y="73" key="Github.UntrackedFilesDialog/0.0.1366.738@0.0.1366.738" timestamp="1601949892176" />
-    <state width="1322" height="223" key="GridCell.Tab.0.bottom" timestamp="1603017237221">
+    <state width="1322" height="160" key="GridCell.Tab.0.bottom" timestamp="1603020790532">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="223" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1603017237221" />
-    <state width="1322" height="223" key="GridCell.Tab.0.center" timestamp="1603017237220">
+    <state width="1322" height="160" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1603020790532" />
+    <state width="1322" height="160" key="GridCell.Tab.0.center" timestamp="1603020790532">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="223" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1603017237220" />
-    <state width="1322" height="223" key="GridCell.Tab.0.left" timestamp="1603017237220">
+    <state width="1322" height="160" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1603020790532" />
+    <state width="1322" height="160" key="GridCell.Tab.0.left" timestamp="1603020790532">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="223" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1603017237220" />
-    <state width="1322" height="223" key="GridCell.Tab.0.right" timestamp="1603017237220">
+    <state width="1322" height="160" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1603020790532" />
+    <state width="1322" height="160" key="GridCell.Tab.0.right" timestamp="1603020790532">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="223" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1603017237220" />
+    <state width="1322" height="160" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1603020790532" />
     <state width="1322" height="221" key="GridCell.Tab.1.bottom" timestamp="1601773556471">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -241,10 +241,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1366.738@0.0.1366.738" timestamp="1601920808376" />
-    <state x="275" y="101" key="Vcs.Push.Dialog.v2" timestamp="1603018062656">
+    <state x="275" y="101" key="Vcs.Push.Dialog.v2" timestamp="1603020927153">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1603018062656" />
+    <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1603020927153" />
     <state x="203" y="51" width="818" height="661" key="new project wizard" timestamp="1601902513242">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

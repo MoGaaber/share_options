@@ -19,12 +19,7 @@ class TextShare extends ShareOption {
 
   @override
   Future<void> share() async {
-    await channel.invokeMethod('shareText', {
-      ...ShareOption.textAndSubject.toMap(),
-
-      // 'text': ShareOption.text,
-      // 'subject': ShareOption.subject,
-      ...activityInfo.toMap
-    });
+    await channel.invokeMethod('shareText',
+        {...ShareOption.textAndSubject.toMap, ...activityInfo.toMap});
   }
 }

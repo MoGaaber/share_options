@@ -7,6 +7,7 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:mime/mime.dart';
 import 'package:share_options/share_options.dart';
+import 'package:share_options/src/share_file_utiltiy.dart';
 import 'package:share_options/src/text_subject.dart';
 
 import 'activity_info.dart';
@@ -63,11 +64,9 @@ class ShareOptions {
           break;
       }
     }
-    FileShare.action = action;
-    FileShare.mimeType = mimeType;
-    FileShare.paths = paths;
 
-    ShareOption.textAndSubject = TextAndSubject(text: text, subject: subject);
+    FileShare.shareFileUtility = ShareFileUtility(action, mimeType, paths);
+    ShareOption.textAndSubject = TextAndSubject(text, subject);
 
     final shareOptions = await channel.invokeMethod<List>(
         'getShareOptions', {'action': action, 'mimeType': mimeType});
@@ -78,7 +77,7 @@ class ShareOptions {
 
   static Future<List<TextShare>> textShareOptions(String text,
       {String subject}) async {
-    ShareOption.textAndSubject = TextAndSubject(text: text, subject: subject);
+    ShareOption.textAndSubject = TextAndSubject(text, subject);
 
     final shareOptions = await channel.invokeMethod<List>(
         'getShareOptions', {'action': _ACTION_SEND, 'mimeType': 'text/plain'});

@@ -4,7 +4,7 @@ class ActivityInfo {
     this.packageName,
   );
 
-  /// Name of share intent.
+  /// Name of share intent class name.
   final String className;
 
   /// Package name of share intent.
