@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:share_options/share_options.dart';
+// import 'package:share_options/share_options.dart';
 import 'package:share_options_example/ui/dialogs/my_dialog.dart';
 
 class Logic extends ChangeNotifier {
@@ -13,17 +14,20 @@ class Logic extends ChangeNotifier {
   var packageNameController = TextEditingController(text: "com.whatsapp");
   var scaffoldKey = GlobalKey<ScaffoldState>();
   List<String> filesPaths = [];
+
   /*
       // "/data/user/0/com.example.get_share_options_example/cache/file_picker/Screenshot_2020-10-14-00-09-39-68.jpg"
 
    */
-  Future<List<ShareOptions>> getShareOptions;
+  Future<List<ShareOption>> getShareOptions;
 
   Logic() {
-    getShareOptions = ShareOptions.getShareOptions(SharedContent(
-        text: textController.text,
-        filePaths: filesPaths,
-        subject: subjectController.text));
+    // getShareOptions = ShareOptions.textShareOptions('hello', subject: 'world');
+    getShareOptions = ShareOptions.filesShareOptions([
+      '/data/user/0/com.example.get_share_options_example/cache/file_picker/Screenshot_2020-10-18-06-23-08-04_8850cb4e4bfcc15527143476c3381b12.jpg',
+      '/data/user/0/com.example.get_share_options_example/cache/file_picker/Screenshot_2020-10-18-09-57-00-61_f598e1360c96b5a5aa16536c303cff92.jpg'
+    ], text: 'hello', subject: 'world');
+    ;
   }
 
   // List<ShareOptions> shareOptions;
@@ -83,10 +87,7 @@ class Logic extends ChangeNotifier {
 
   void refreshOptions() {
     getShareOptions = null;
-    getShareOptions = ShareOptions.getShareOptions(SharedContent(
-        text: textController.text,
-        filePaths: filesPaths,
-        subject: subjectController.text));
+    getShareOptions = ShareOptions.textShareOptions("hello", subject: 'world');
     notifyListeners();
   }
 

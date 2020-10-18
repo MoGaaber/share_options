@@ -3,98 +3,100 @@
 // found in the LICENSE file.
 
 import 'dart:async';
-import 'dart:typed_data';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+import 'package:mime/mime.dart';
+import 'package:share_options/share_options.dart';
 
 import 'activity_info.dart';
 import 'content.dart';
+import 'helpers.dart';
+import 'share/file.dart';
+import 'share/text.dart';
+
+const channel = const MethodChannel('share_options');
 
 class ShareOptions {
+  static const _ACTION_SEND = 'android.intent.action.SEND';
+  static const _SEND_MULTIPLE = 'android.intent.action.SEND_MULTIPLE';
+
   /// Method channel
-  static const _channel = MethodChannel('share_options');
-
-  static SharedContent _sharedContent;
-
-  /// Share option name
-  final String name;
-
-  /// Share option icon
-  /// to display it into your app pass it to [Image.memory] widget
-  final Uint8List icon;
-
-  /// private field , it works internally and not visible out this file
-  /// it uses in open share intent
-  final ActivityInfo activityInfo;
-
-  /// private constructor , it works internally and not visible out this file
-  /// to assign values to [ShareOptions._shareOption]
-  ShareOptions._shareOption({
-    @required this.name,
-    @required this.icon,
-    @required this.activityInfo,
-  });
-
-  static void _sharedContentValidator(SharedContent sharedContent) {
-    // if (sharedContent.isEmptyText && sharedContent.isEmptyPaths) {
-    //   throw FormatException("Empty shared content");
-    // }
-    // else if (!sharedContent.isPathsExist && sharedContent.isEmptyText) {
-    //   throw FormatException("Invalid paths and empty text");
-    // }
-  }
 
   /// get a list of all [ShareOptions] which can be receive this [sharedContent]
   /// throw exception if provide empty [sharedContent.text ] and [sharedContent.filePaths] or invalid  [sharedContent.filePaths]
+  static Future<List<FileShare>> filesShareOptions(List<String> paths,
+      {String text, String subject}) async {
+    String action, mimeType;
 
-  static Future<List<ShareOptions>> getShareOptions(
-      SharedContent sharedContent) async {
-    // if(sharedContent.filePaths)
+    if (paths.isEmpty) {
+      throw Helpers.formatException;
+    } else {
+      var validPaths = Helpers.validPaths(paths).length;
 
-/*
-   var mappedSharedContent = sharedContent.toMap;
-    _sharedContentValidator(sharedContent);
-    _sharedContent = sharedContent;
+      switch (validPaths) {
+        case 0:
+          {
+            throw Helpers.formatException;
+          }
 
-    var shareOptions = await _channel.invokeMethod<List>(
-        'getShareOptions', sharedContent.toSpecificMap);
+          break;
+
+        case 1:
+          {
+            action = _ACTION_SEND;
+            if (!Helpers.textIsEmpty(text))
+              mimeType = '*/*';
+            else
+              mimeType = lookupMimeType(paths[0]);
+          }
+
+          break;
+        default:
+          {
+            action = _SEND_MULTIPLE;
+            if (!Helpers.textIsEmpty(text))
+              mimeType = '*/*';
+            else
+              mimeType = Helpers.generalMimeType(paths);
+          }
+          break;
+      }
+    }
+
+    FileShare.mimeType = mimeType;
+    FileShare.action = action;
+    ShareOption.subject = subject;
+    ShareOption.text = text;
+    FileShare.paths = paths;
+    final shareOptions = await channel.invokeMethod<List>(
+        'getShareOptions', {'action': action, 'mimeType': mimeType});
     return shareOptions
-        .map((e) => ShareOptions._fromMap(Map<String, dynamic>.from(e)))
+        .map((e) => FileShare.fromMap(Map<String, dynamic>.from(e)))
         .toList();
-*/
+  }
+
+  static Future<List<TextShare>> textShareOptions(String text,
+      {String subject}) async {
+    ShareOption.text = text;
+    ShareOption.subject = subject;
+
+    final shareOptions = await channel.invokeMethod<List>(
+        'getShareOptions', {'action': _ACTION_SEND, 'mimeType': 'text/plain'});
+    return shareOptions
+        .map((e) => TextShare.fromMap(Map<String, dynamic>.from(e)))
+        .toList();
   }
 
   /// open share intent
   /// [sharedText] is a text which you managed to share it
-  Future<void> share() async {
-    print({...activityInfo.toMap, ..._sharedContent.toMap});
-    await _channel.invokeMethod(
-        'share', {...activityInfo.toMap, ..._sharedContent.toMap});
-  }
 
   /// custom open share option/app/intent
   static Future<void> customShare(
       SharedContent sharedContent, ActivityInfo activityInfo) async {
-    _sharedContentValidator(sharedContent);
-
     if (!activityInfo.valid) {
       throw FormatException("invalid activity info");
     }
-    await _channel
+    await channel
         .invokeMethod('share', {...activityInfo.toMap, ...sharedContent.toMap});
-  }
-
-  factory ShareOptions._fromMap(Map<String, dynamic> map) =>
-      ShareOptions._shareOption(
-        name: map['name'] as String,
-        icon: map['icon'] as Uint8List,
-        activityInfo:
-            ActivityInfo.fromMap(Map<String, String>.from(map['activityInfo'])),
-      );
-
-  @override
-  String toString() {
-    return 'ShareOptions{name: $name, icon: $icon, activityInfo: $activityInfo}';
   }
 }

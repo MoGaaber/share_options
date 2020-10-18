@@ -4,25 +4,16 @@ import 'package:share_options/share_options.dart';
 import 'package:share_options_example/logic.dart';
 
 class Ui extends StatelessWidget {
-  // var filePaths = [null];
-  // bool get isEmptyPaths => filePaths == null ? true : notNullFilePaths.isEmpty;
-  // List<String> get notNullFilePaths =>
-  //     filePaths.where((element) => element != null).toList();
-  //
-  // bool get isPathsExist => notNullFilePaths.isEmpty
-  //     ? false
-  //     : notNullFilePaths.every((e) => File(e).existsSync());
+  var filePaths = [
+    null,
+    null,
+    'data/user/0/com.example.get_share_options_example/cache/file_picker/Screenshot_2020-10-14-00-09-39-68.jpg',
+    'hello'
+  ];
 
   @override
   Widget build(BuildContext context) {
-    ////data/user/0/com.example.get_share_options_example/cache/file_picker/Screenshot_2020-10-14-00-09-39-68.jpg
     var logic = Provider.of<Logic>(context);
-    // ShareOptions.getShareOptions(SharedContent(text: "dd", filePaths: [null]))
-    //     .then((value) => print("value"))
-    //     .catchError((e) => print(e));
-    // FilePicker.platform.pickFiles().then((value) => print(value.paths));
-    print(Uri.file(
-        'data/user/0/com.example.get_share_options_example/cache/file_picker/Screenshot_2020-10-14-00-09-39-68.jpg'));
     return SafeArea(
       child: Scaffold(
           appBar: AppBar(
@@ -47,7 +38,7 @@ class Ui extends StatelessWidget {
                   onPressed: () => logic.showFilterOptionsDialog(context)),
             ],
           ),
-          body: FutureBuilder<List<ShareOptions>>(
+          body: FutureBuilder<List<ShareOption>>(
             future: logic.getShareOptions,
             builder: (BuildContext context, snapshot) {
               var shareOptions = snapshot.data;

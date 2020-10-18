@@ -12,6 +12,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  mime: ^0.9.7
+
 dev_dependencies:
   change_app_package_name: ^0.1.2
 

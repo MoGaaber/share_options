@@ -10,46 +10,68 @@ internal class MethodCallHandler(private val shareOptions: ShareOptions) : Metho
 
     override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
         when (call.method) {
-
-            "share" -> onShare(call, result)
-            "getShareOptions" -> onGetShareOptions(call, result)
+            "shareFiles" -> expectMapArguments(call,result,::onShareFiles)
+            "shareText" -> expectMapArguments(call,result,::onShareText)
+            "getShareOptions" -> expectMapArguments(call, result,::onGetShareOptions)
             else -> result.notImplemented()
         }
     }
 
-    private fun onGetShareOptions(call: MethodCall, result: MethodChannel.Result) {
-        try {
-            val text = call.argument<String>("text")
+    private fun onShareFiles(call: MethodCall, result: MethodChannel.Result) {
 
-            val paths = call.argument<List<String>>("paths")
+        val action = call.argument<String>("action")!!
+        val mimeType = call.argument<String>("mimeType")!!
 
-            result.success(shareOptions.getShareOptions(text, paths))
+        val paths = call.argument<List<String>>("paths")!!
 
-        } catch (e: Throwable) {
-            result.error(e.message, null, null);
-        }
-    }
-
-    private fun onShare(call: MethodCall, result: MethodChannel.Result) {
-        expectMapArguments(call)
-        val paths = call.argument<List<String>>("paths")
         val text = call.argument<String>("text")
         val subject = call.argument<String>("subject")
-        val name = call.argument<String>("name").toString()
-        val packageName = call.argument<String>("packageName").toString()
+
+        val name = call.argument<String>("name")!!
+        val packageName = call.argument<String>("packageName")!!
 
         try {
-            shareOptions.share(paths, text, subject, name, packageName)
+            shareOptions.shareFiles(action,mimeType, paths, text, subject, name, packageName)
             result.success(null)
-        } catch (e: Throwable) {
-//e.cause
-//            result.error("0", "Can't found this share app which matches this class or package name on this device",null)
-            result.error(e.message, e.localizedMessage, e)
+        } catch (e: IOException) {
+
+            result.error(e.localizedMessage, e.message, e.cause)
+        }
+
+    }
+
+    private fun onGetShareOptions(call: MethodCall, result: MethodChannel.Result) {
+
+        try {
+            val action = call.argument<String>("action")!!
+
+            val type = call.argument<String>("mimeType")!!
+
+            result.success(shareOptions.getShareOptions(action, type))
+
+        } catch (e: IOException) {
+            result.error(e.localizedMessage, e.message, e.cause)
         }
     }
 
-    private fun expectMapArguments(call: MethodCall) {
-        require(call.arguments is Map<*, *>) { "Map argument expected" }
+    private fun onShareText(call: MethodCall, result: MethodChannel.Result) {
+        val text = call.argument<String>("text")!!
+        val subject = call.argument<String>("subject")
+        val name = call.argument<String>("name")!!
+        val packageName = call.argument<String>("packageName")!!
+        try {
+            shareOptions.shareText(text, subject, name, packageName)
+            result.success(null)
+        } catch (e: IOException) {
+            result.error(e.localizedMessage, e.message, e.cause)
+        }
     }
+
+    private fun expectMapArguments(call: MethodCall, result: MethodChannel.Result, method: (call: MethodCall, result: MethodChannel.Result) -> Unit) {
+        require(call.arguments is Map<*, *>) { "Map argument expected" }
+        method(call, result);
+
+    }
+
 
 }
