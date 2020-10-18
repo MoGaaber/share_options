@@ -7,12 +7,13 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:mime/mime.dart';
 import 'package:share_options/share_options.dart';
+import 'package:share_options/src/text_subject.dart';
 
 import 'activity_info.dart';
-import 'content.dart';
 import 'helpers.dart';
-import 'share/file.dart';
-import 'share/text.dart';
+import 'share_options/file.dart';
+import 'share_options/share_option.dart';
+import 'share_options/text.dart';
 
 const channel = const MethodChannel('share_options');
 
@@ -62,12 +63,12 @@ class ShareOptions {
           break;
       }
     }
-
-    FileShare.mimeType = mimeType;
     FileShare.action = action;
-    ShareOption.subject = subject;
-    ShareOption.text = text;
+    FileShare.mimeType = mimeType;
     FileShare.paths = paths;
+
+    ShareOption.textAndSubject = TextAndSubject(text: text, subject: subject);
+
     final shareOptions = await channel.invokeMethod<List>(
         'getShareOptions', {'action': action, 'mimeType': mimeType});
     return shareOptions
@@ -77,8 +78,7 @@ class ShareOptions {
 
   static Future<List<TextShare>> textShareOptions(String text,
       {String subject}) async {
-    ShareOption.text = text;
-    ShareOption.subject = subject;
+    ShareOption.textAndSubject = TextAndSubject(text: text, subject: subject);
 
     final shareOptions = await channel.invokeMethod<List>(
         'getShareOptions', {'action': _ACTION_SEND, 'mimeType': 'text/plain'});
@@ -91,12 +91,11 @@ class ShareOptions {
   /// [sharedText] is a text which you managed to share it
 
   /// custom open share option/app/intent
-  static Future<void> customShare(
-      SharedContent sharedContent, ActivityInfo activityInfo) async {
+  static Future<void> customShare(ActivityInfo activityInfo) async {
     if (!activityInfo.valid) {
       throw FormatException("invalid activity info");
     }
-    await channel
-        .invokeMethod('share', {...activityInfo.toMap, ...sharedContent.toMap});
+    // await channel
+    //     .invokeMethod('share', {...activityInfo.toMap, ...sharedContent.toMap});
   }
 }

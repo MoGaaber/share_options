@@ -27,7 +27,6 @@ class Logic extends ChangeNotifier {
       '/data/user/0/com.example.get_share_options_example/cache/file_picker/Screenshot_2020-10-18-06-23-08-04_8850cb4e4bfcc15527143476c3381b12.jpg',
       '/data/user/0/com.example.get_share_options_example/cache/file_picker/Screenshot_2020-10-18-09-57-00-61_f598e1360c96b5a5aa16536c303cff92.jpg'
     ], text: 'hello', subject: 'world');
-    ;
   }
 
   // List<ShareOptions> shareOptions;
@@ -106,10 +105,6 @@ class Logic extends ChangeNotifier {
   Future<void> customShare() async {
     try {
       await ShareOptions.customShare(
-          SharedContent(
-              text: textController.text,
-              filePaths: filesPaths,
-              subject: subjectController.text),
           ActivityInfo(classNameController.text, packageNameController.text));
     } catch (e) {
       scaffoldKey.currentState.showSnackBar(SnackBar(content: Text(e.message)));

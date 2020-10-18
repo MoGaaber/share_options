@@ -1,10 +1,13 @@
 import 'dart:typed_data';
 
-import 'activity_info.dart';
+import 'package:share_options/src/activity_info.dart';
+import 'package:share_options/src/text_subject.dart';
 
 abstract class ShareOption {
+  const ShareOption(this.name, this.icon, this.activityInfo);
+
   // static String text, subject;
-  static String text, subject;
+  static TextAndSubject textAndSubject;
 
   /// Share option name
   final String name;
@@ -16,8 +19,5 @@ abstract class ShareOption {
   /// private field , it works internally and not visible out this file
   /// it uses in open share intent
   final ActivityInfo activityInfo;
-
-  ShareOption(this.name, this.icon, this.activityInfo);
-
   Future<void> share();
 }

@@ -3,10 +3,10 @@ import 'dart:typed_data';
 import 'package:share_options/share_options.dart';
 import 'package:share_options/src/activity_info.dart';
 
-import '../share_option.dart';
+import 'share_option.dart';
 
 class FileShare extends ShareOption {
-  FileShare(String name, Uint8List icon, ActivityInfo activityInfo)
+  const FileShare(String name, Uint8List icon, ActivityInfo activityInfo)
       : super(name, icon, activityInfo);
 
   static String action, mimeType;
@@ -22,13 +22,13 @@ class FileShare extends ShareOption {
 
   @override
   Future<void> share() async {
-    print(mimeType);
     await channel.invokeMethod('shareFiles', {
+      ...ShareOption.textAndSubject.toMap(),
       'action': action,
       'mimeType': mimeType,
       'paths': paths,
-      'text': ShareOption.text,
-      'subject': ShareOption.subject,
+      // 'text': ShareOption.text,
+      // 'subject': ShareOption.subject,
       ...activityInfo.toMap,
     });
   }

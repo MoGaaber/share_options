@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:share_options/share_options.dart';
 
 import 'logic.dart';
 import 'ui/ui.dart';
@@ -15,6 +16,8 @@ void main() {
 class MyMaterialApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    ShareOption.textAndSubject;
+    ShareOptions.textShareOptions('text').then((value) => value[0]);
     return ChangeNotifierProvider(
       create: (BuildContext context) => Logic(),
       child: MaterialApp(home: Ui()),

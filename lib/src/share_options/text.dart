@@ -3,10 +3,10 @@ import 'dart:typed_data';
 import 'package:share_options/share_options.dart';
 import 'package:share_options/src/activity_info.dart';
 
-import '../share_option.dart';
+import 'share_option.dart';
 
 class TextShare extends ShareOption {
-  TextShare(String name, Uint8List icon, ActivityInfo activityInfo)
+  const TextShare(String name, Uint8List icon, ActivityInfo activityInfo)
       : super(name, icon, activityInfo);
 
   factory TextShare.fromMap(Map<String, dynamic> map) {
@@ -19,11 +19,11 @@ class TextShare extends ShareOption {
 
   @override
   Future<void> share() async {
-    // text = '!!';
-
     await channel.invokeMethod('shareText', {
-      'text': ShareOption.text,
-      'subject': ShareOption.subject,
+      ...ShareOption.textAndSubject.toMap(),
+
+      // 'text': ShareOption.text,
+      // 'subject': ShareOption.subject,
       ...activityInfo.toMap
     });
   }

@@ -1,6 +1,5 @@
 package com.example.get_share_options
 
-import android.app.Activity
 import android.content.Context
 import android.util.Log
 import io.flutter.embedding.engine.plugins.FlutterPlugin

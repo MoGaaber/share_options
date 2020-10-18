@@ -42,10 +42,10 @@ internal class MethodCallHandler(private val shareOptions: ShareOptions) : Metho
 
     private fun onGetShareOptions(call: MethodCall, result: MethodChannel.Result) {
 
-        try {
             val action = call.argument<String>("action")!!
 
             val type = call.argument<String>("mimeType")!!
+        try {
 
             result.success(shareOptions.getShareOptions(action, type))
 
