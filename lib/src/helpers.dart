@@ -12,8 +12,8 @@ class Helpers {
     return (uniqueTypes.length == 1) ? ('${uniqueTypes.first}/*') : ('*/*');
   }
 
-  static bool textIsEmpty(String text) =>
-      text == null ? true : text.trim().isEmpty;
+  static bool isTextNotEmpty(String text) =>
+      text == null ? true : text.trim().isNotEmpty;
 
   static List<String> notNullFilePaths(List<String> paths) =>
       paths.where((element) => element != null).toList();

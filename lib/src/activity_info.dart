@@ -4,16 +4,11 @@ class ActivityInfo {
     this.packageName,
   );
 
-  /// Name of share intent class name.
+  /// Class name of app's share intent.
   final String className;
 
-  /// Package name of share intent.
+  /// Package name of app's share intent.
   final String packageName;
-
-  bool get valid {
-    var regexp = RegExp(r'^([A-Za-z]{1}[A-Za-z\d_]*\.)*[A-Za-z][A-Za-z\d_]*$');
-    return regexp.hasMatch(packageName) && regexp.hasMatch(className);
-  }
 
   factory ActivityInfo.fromMap(Map<String, String> map) =>
       ActivityInfo(map['name'], map['packageName']);

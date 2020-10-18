@@ -5,12 +5,12 @@ import 'package:share_options/src/activity_info.dart';
 
 import 'share_option.dart';
 
-class TextShare extends ShareOption {
-  const TextShare(String name, Uint8List icon, ActivityInfo activityInfo)
+class TextShareOption extends ShareOption {
+  const TextShareOption(String name, Uint8List icon, ActivityInfo activityInfo)
       : super(name, icon, activityInfo);
 
-  factory TextShare.fromMap(Map<String, dynamic> map) {
-    return TextShare(
+  factory TextShareOption.fromMap(Map<String, dynamic> map) {
+    return TextShareOption(
       map['name'] as String,
       map['icon'] as Uint8List,
       ActivityInfo.fromMap(Map<String, String>.from(map['activityInfo'])),

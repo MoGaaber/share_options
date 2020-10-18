@@ -2,18 +2,18 @@ import 'dart:typed_data';
 
 import 'package:share_options/share_options.dart';
 import 'package:share_options/src/activity_info.dart';
-import 'package:share_options/src/share_file_utiltiy.dart';
+import 'package:share_options/src/shared_files.dart';
 
 import 'share_option.dart';
 
-class FileShare extends ShareOption {
-  const FileShare(String name, Uint8List icon, ActivityInfo activityInfo)
+class FilesShareOption extends ShareOption {
+  const FilesShareOption(String name, Uint8List icon, ActivityInfo activityInfo)
       : super(name, icon, activityInfo);
-  static ShareFileUtility shareFileUtility;
-  // static String action, mimeType;
-  // static List<String> paths;
 
-  factory FileShare.fromMap(Map<String, dynamic> map) => FileShare(
+  static SharedFiles sharedFiles;
+
+  factory FilesShareOption.fromMap(Map<String, dynamic> map) =>
+      FilesShareOption(
         map['name'] as String,
         map['icon'] as Uint8List,
         ActivityInfo.fromMap(Map<String, String>.from(map['activityInfo'])),
@@ -23,7 +23,7 @@ class FileShare extends ShareOption {
   Future<void> share() async {
     await channel.invokeMethod('shareFiles', {
       ...ShareOption.textAndSubject.toMap,
-      ...FileShare.shareFileUtility.toMap,
+      ...FilesShareOption.sharedFiles.toMap,
       ...activityInfo.toMap,
     });
   }

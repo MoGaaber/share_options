@@ -1,23 +1,26 @@
 import 'dart:typed_data';
 
 import 'package:share_options/src/activity_info.dart';
-import 'package:share_options/src/text_subject.dart';
+import 'package:share_options/src/shared_text_subject.dart';
 
+/// Base class of [FileShare] and [TextShare]
 abstract class ShareOption {
   const ShareOption(this.name, this.icon, this.activityInfo);
 
-  // static String text, subject;
-  static TextAndSubject textAndSubject;
+  /// shared Text and subject
+  static SharedTextAndSubject textAndSubject;
 
-  /// Share option name
+  /// Share (option/app) name
   final String name;
 
-  /// Share option icon
+  /// Share (option/app) icon
   /// to display it into your app pass it to [Image.memory] widget
   final Uint8List icon;
 
-  /// private field , it works internally and not visible out this file
-  /// it uses in open share intent
+  /// Activity info of Share (option/app)
   final ActivityInfo activityInfo;
+
+  /// share method it's overridden in subclasses
+  /// uses to share content
   Future<void> share();
 }
