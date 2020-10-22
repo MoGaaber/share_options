@@ -2,7 +2,7 @@ import 'dart:typed_data';
 
 import 'package:share_options/share_options.dart';
 import 'package:share_options/src/activity_info.dart';
-import 'package:share_options/src/shared_files.dart';
+import 'package:share_options/src/shared_content/shared_files.dart';
 
 import 'share_option.dart';
 

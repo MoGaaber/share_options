@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:share_options/src/activity_info.dart';
-import 'package:share_options/src/shared_text_subject.dart';
+import 'package:share_options/src/shared_content/shared_text_subject.dart';
 
 /// Base class of [FileShare] and [TextShare]
 abstract class ShareOption {

@@ -3,33 +3,35 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:mime/mime.dart';
 import 'package:share_options/share_options.dart';
-import 'package:share_options/src/constants.dart';
+import 'package:share_options/src/util/constants.dart';
+import 'package:share_options/src/util/helpers.dart';
 
-import 'helpers.dart';
 import 'share_options/file.dart';
 import 'share_options/share_option.dart';
 import 'share_options/text.dart';
-import 'shared_files.dart';
-import 'shared_text_subject.dart';
+import 'shared_content/shared_files.dart';
+import 'shared_content/shared_text_subject.dart';
 
 const channel = const MethodChannel('share_options');
 
 class ShareOptions {
   /// get a list of sharing intents which supporting files and texts
-  /// throw [FormatException] if list haven't one valid path
-  static Future<List<FilesShareOption>> filesShareOptions(List<String> paths,
+  /// [getTextShareOptions] is called if list haven't one valid path
+  static Future<List<ShareOption>> getFilesShareOptions(List<String> paths,
       {String text, String subject}) async {
     String action, mimeType;
 
     if (paths.isEmpty) {
-      throw Helpers.formatException;
+      // throw Helpers.formatException;
+      return getTextShareOptions(text, subject: subject);
     } else {
       var validPaths = Helpers.validPaths(paths).length;
 
       switch (validPaths) {
         case 0:
           {
-            throw Helpers.formatException;
+            // throw Helpers.formatException;
+            return getTextShareOptions(text, subject: subject);
           }
 
           break;
@@ -67,7 +69,7 @@ class ShareOptions {
   }
 
   /// get a list of sharing intents which supporting texts only
-  static Future<List<TextShareOption>> textShareOptions(String text,
+  static Future<List<TextShareOption>> getTextShareOptions(String text,
       {String subject}) async {
     ShareOption.textAndSubject = SharedTextAndSubject(text, subject);
     final shareOptions = await channel.invokeMethod<List>('getShareOptions',

@@ -16,8 +16,8 @@ void main() {
 class MyMaterialApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    ShareOption.textAndSubject;
-    ShareOptions.textShareOptions('text').then((value) => value[0]);
+    ShareOptions.getTextShareOptions('text').then((value) => value[0]);
+
     return ChangeNotifierProvider(
       create: (BuildContext context) => Logic(),
       child: MaterialApp(home: Ui()),
