@@ -72,9 +72,11 @@ class Logic extends ChangeNotifier {
   }
 
   void onPressedToggleButton(int index) {
-    selected[index] = true;
-    selected[oldSelectedIndex] = false;
-    oldSelectedIndex = index;
-    notifyListeners();
+    if (oldSelectedIndex != index) {
+      selected[index] = true;
+      selected[oldSelectedIndex] = false;
+      oldSelectedIndex = index;
+      notifyListeners();
+    }
   }
 }

@@ -43,7 +43,7 @@ class FilterShareOptionsDialog extends StatelessWidget {
             Visibility(
               visible: logic.isFilesShareEnabled,
               child: RaisedButton(
-                  onPressed: logic.pickFiles, child: Text('Pick images')),
+                  onPressed: logic.pickFiles, child: Text('Pick image')),
             ),
             Visibility(
               visible: logic.isImageVisible,
