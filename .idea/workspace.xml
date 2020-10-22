@@ -20,10 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66855249-0586-4460-afe8-9dd884a83200" name="Default Changelist" comment="1- add share files feature &#10;2- improve structure and design">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/logic.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/logic.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/ui/filter_share_options_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/ui/filter_share_options_dialog.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,11 +49,14 @@
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../dart/hello" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\projects\flutter\cv\share_options\assets" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\projects\flutter\cv\share_options\assets" />
       <recent name="E:\projects\flutter\cv\share_options\lib\src\util" />
@@ -167,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603399039144</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="1- add share files feature &#10;2- improve structure and design">
+      <created>1603402243391</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1603402243391</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -260,10 +267,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1366.738@0.0.1366.738" timestamp="1601920808376" />
-    <state x="275" y="101" key="Vcs.Push.Dialog.v2" timestamp="1603399041416">
+    <state x="275" y="101" key="Vcs.Push.Dialog.v2" timestamp="1603402245431">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1603399041416" />
+    <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1603402245431" />
     <state x="203" y="51" width="818" height="661" key="new project wizard" timestamp="1603068125935">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

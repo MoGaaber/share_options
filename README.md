@@ -10,7 +10,7 @@ Hey, hey why you created this plugin ?
 **-  I wanted to create something like this sharing button**
 
 
-![alt text](https://github.com/MoGaaber/share_options/blob/master/assets/Screenshot_2020-10-22-21-44-10-70_8850cb4e4bfcc15527143476c3381b12.jpg?raw=true)
+![alt text](https://github.com/MoGaaber/share_options/blob/master/assets/screen_shot.jpg?raw=true)
 ## Let's Discover It
 
 
@@ -20,7 +20,7 @@ _every ShareOption object have name & icon (in Uint8List format ) properties_
 
 
 ```dart
-Future<List<ShareOption>> get getTextShareOptions async=>
+Future<List<ShareOption>> get getTextShareOptions async =>
 await ShareOptions.getTextShareOptions("text",subject: "subject");
 ```
 
@@ -30,26 +30,27 @@ Why you make shared content passes when getting share options ?
 **- to get only share options that support this shared content 
 By example some app doesn't support file sharing , some formats of files or multiple files share and so on.**    
 
+
+# Let's Continue 
+
 **Get sharing options which can receive files** 
   ```dart
 
-Future<List<ShareOption>> get getFileShareOptions async=>
+Future<List<ShareOption>> get getFileShareOptions async =>
 await ShareOptions.getFilesShareOptions(['path1', 'path2'], text: 'text',subject: 'subject');
 
 ```
 
-
-****Now , let's share ****  
-
-Call **share()** on any **ShareOption** object 
+ **finally for share content**  
 
 ```dart
 
-void share()async=>await shareOption.share();
+void share()async => await shareOption.share();
 
 ```  
 
 **Example app will produce:**  
+![alt text](https://github.com/MoGaaber/share_options/blob/master/assets/example.gif?raw=true)
 
 
 ## Buy me a coffee 
