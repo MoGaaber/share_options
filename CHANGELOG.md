@@ -3,6 +3,8 @@
 ## 1.0.2 
 * Support File sharing .
 * Improve & fix code .
+## 1.0.3
+* improve README 
 
 
 
