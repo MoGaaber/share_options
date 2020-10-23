@@ -4,7 +4,7 @@
 * Support File sharing .
 * Improve & fix code .
 ## 1.0.3
-* improve README 
+* improve README  .
 
 
 
