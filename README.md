@@ -1,6 +1,6 @@
 # share_options 
 
-##### A Flutter plugin for getting share options and share text & files over them 
+##### A Flutter plugin for getting share options and share text / files over them .
 ## Let's Discover It
 **Get sharing options which can receive texts only :-** 
 ```dart
