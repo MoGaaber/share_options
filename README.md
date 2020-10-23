@@ -11,16 +11,6 @@ Future<List<ShareOption>> get getTextShareOptions async => await ShareOptions.ge
 Future<List<ShareOption>> get getFileShareOptions async =>
 await ShareOptions.getFilesShareOptions(['path1', 'path2'], text: 'text',subject: 'subject');
 ```
-# Pause 
-
-Maybe you are wondering now :
-
-**Why you made shared content passes when getting share options ??**
-- to get share options which support this kind of shared content;
-some apps maybe doesn't support file sharing , some formats of files or multiple files share and so on .  
-
-# Let's Continue 
-
 **Finally for share :-**  
 ```dart
 void share()async{
@@ -31,6 +21,13 @@ await shareOptions[0].share();
 }
 ```  
 
+### Maybe you are wondering now :-
+
+**Why you made shared content passes when getting share options ??**
+- to get share options which support this kind of shared content;
+some apps maybe doesn't support file sharing , some formats of files or multiple files share and so on .  
+
+
 ### **Example app will produce :**
 
 ![alt text](https://github.com/MoGaaber/share_options/blob/master/assets/example.gif?raw=true)
@@ -38,7 +35,7 @@ await shareOptions[0].share();
 
 ## Buy me a coffee 
 
-**Supporting me by clicking the below button** 
+##### Supporting me by clicking below :-
 
 <a href="https://www.buymeacoffee.com/mogaber" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
