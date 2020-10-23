@@ -19,9 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66855249-0586-4460-afe8-9dd884a83200" name="Default Changelist" comment="1- add share files feature &#10;2- improve structure and design">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="66855249-0586-4460-afe8-9dd884a83200" name="Default Changelist" comment="1- add share files feature &#10;2- improve structure and design" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -188,7 +186,21 @@
       <option name="project" value="LOCAL" />
       <updated>1603413798785</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="1- add share files feature &#10;2- improve structure and design">
+      <created>1603414096849</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1603414096849</updated>
+    </task>
+    <task id="LOCAL-00017" summary="1- add share files feature &#10;2- improve structure and design">
+      <created>1603414294149</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1603414294149</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
